@@ -17,6 +17,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  min-height: 100vh;
 }
 
 .pattern {
@@ -32,11 +33,7 @@ body {
   justify-content: space-between;
 }
 
-#bg-top-desktop {
-  display: none;
-}
-
-#bg-bottom-desktop {
+#bg-top-desktop, #bg-bottom-desktop {
   display: none;
 }
 
@@ -74,12 +71,13 @@ body {
   flex-direction: column;
   gap: 1rem;
   text-align: center;
+  width: 100%;
 }
 
 .stars_rate-div {
   background-color: var(--Light-Grayish-Magenta);
   border-radius: 0.5rem;
-  padding: 1rem 3.5rem;
+  padding: 1rem 0;
 }
 
 .icons {
@@ -144,4 +142,104 @@ body {
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 768px) {
+
+  .header-text {
+    padding: 0 3rem;
+  }
+
+  .stars, .comments {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .comments .card {
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  
+  #bg-bottom-desktop, #bg-top-desktop {
+    display: block;
+    width: 40%;
+  }
+
+  #bg-bottom-mobile, #bg-top-mobile {
+    display: none;
+  }
+
+  .pattern {
+    flex-direction: row;
+  }
+
+  .page-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    max-width: 1200px;
+  }
+
+  .header-text {
+    text-align: left;
+    padding-left: 0;
+    padding-right: 10rem;
+    gap: 1rem;
+  }
+
+  .header-text h1 {
+    padding: 0;
+    font-weight: 900;
+    font-size: 3.5rem;
+  }
+
+  .header-text p {
+    line-height: 1.5rem;
+  }
+
+  .stars {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .stars_rate-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 75%;
+    gap: 2rem;
+  }
+  
+  .icons {
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .stars_rate-div:nth-child(2) {
+    transform: translateX(15%);
+  }
+  
+  .stars_rate-div:nth-child(3) {
+    transform: translateX(25%);
+  }
+
+  .comments {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .card:nth-child(2) {
+    transform: translateY(5%);
+  }
+
+  .card:nth-child(3) {
+    transform: translateY(10%);
+  }
+  
+  .attribution {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
